@@ -8,6 +8,14 @@ jobs:
           TZ: Asia/Tokyo
     steps:
       - checkout
+      - run: npm i
+      - persist_to_workspace:
+          root: /tmp/workspace
+          paths:
+            - package.json
+            - package-lock.json
+            - node_modules/*
+            - src/*
   lint:
     docker:
       - image: circleci/node:8
@@ -17,6 +25,8 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
+      - attach_workspace:
+          at: /tmp/workspace
       - run: npm test
   build:
     docker:
