@@ -1,0 +1,10 @@
+version: 2
+
+jobs:
+  checkout_code:
+    docker:
+      - image: circleci/node:8
+        environment:
+          TZ: Asia/Tokyo
+    steps:
+      - checkout
