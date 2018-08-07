@@ -17,7 +17,7 @@ jobs:
     docker:
       - image: circleci/node:8
     steps:
-      - run: echo test
+      - run: npm test
   build:
     docker:
       - image: circleci/node:8
