@@ -8,8 +8,27 @@ jobs:
           TZ: Asia/Tokyo
     steps:
       - checkout
+  lint:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: echo lint
+  test:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: echo test
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: echo build
+
 workflows:
   version: 2
   build-test:
     jobs:
       - checkout_code
+      - lint
+      - test
+      - build
