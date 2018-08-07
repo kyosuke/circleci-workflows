@@ -8,3 +8,8 @@ jobs:
           TZ: Asia/Tokyo
     steps:
       - checkout
+workflows:
+  version: 2
+  build-test:
+    jobs:
+      - checkout_code
