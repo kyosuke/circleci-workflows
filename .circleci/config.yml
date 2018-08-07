@@ -30,5 +30,12 @@ workflows:
     jobs:
       - checkout_code
       - lint
+          requires:
+            - checkout_code
       - test
+          requires:
+            - checkout_code
       - build
+          requires:
+            - checkout_code
+            
