@@ -29,13 +29,12 @@ workflows:
   build-test:
     jobs:
       - checkout_code
-      - lint
+      - lint:
           requires:
             - checkout_code
-      - test
+      - test:
           requires:
             - checkout_code
-      - build
+      - build:
           requires:
             - checkout_code
-            
