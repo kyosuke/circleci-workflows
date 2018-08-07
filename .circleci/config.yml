@@ -23,6 +23,11 @@ jobs:
       - image: circleci/node:8
     steps:
       - run: echo build
+  deploy:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - run: echo deploy   
 
 workflows:
   version: 2
@@ -38,3 +43,11 @@ workflows:
       - build:
           requires:
             - checkout_code
+      - deploy:
+          requires:
+            - lint
+            - test
+            - build
+          filters:
+            branches:
+              only: master
