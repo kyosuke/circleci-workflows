@@ -12,10 +12,7 @@ jobs:
       - persist_to_workspace:
           root: ~/project
           paths:
-            - package.json
-            - package-lock.json
-            - node_modules/*
-            - src/*
+            - *
   lint:
     docker:
       - image: circleci/node:8
